@@ -14,6 +14,7 @@
     <version>1.0</version>
     <modules>
         <module>service_user</module>
+        <module>service_hosp</module>
     </modules>
 
     <dependencies>
