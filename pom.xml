@@ -16,7 +16,7 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.atguigu.yygh</groupId>
+    <groupId>com.atguigu</groupId>
     <artifactId>yygh_parent</artifactId>
     <version>1.0</version>
     <name>yygh_parent</name>
