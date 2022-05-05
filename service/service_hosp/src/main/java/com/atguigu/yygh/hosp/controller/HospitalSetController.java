@@ -21,6 +21,7 @@ import java.util.Random;
 @Api(tags = "医院设置管理")
 @RestController
 @RequestMapping("/admin/hosp/hospitalSet")
+@CrossOrigin
 public class HospitalSetController {
 
     @Autowired
@@ -48,7 +49,7 @@ public class HospitalSetController {
     }
 
     //3 多条件查询和分页查询
-    @PostMapping("findPage/{current}/{limit}")
+    @PostMapping("findPageHospSet/{current}/{limit}")
     public Result pageFindAll(@PathVariable long current,
                               @PathVariable long limit,
                               @RequestBody (required = false) HospitalSetQueryVo hospitalSetQueryVo){//(required = false)默认可以为null
@@ -68,7 +69,7 @@ public class HospitalSetController {
 
     //4 添加医院设置
     @PostMapping("setHospitalSet")
-    public Result insertHosp(@RequestBody HospitalSet hospitalSet){
+    public Result setHospitalSet(@RequestBody HospitalSet hospitalSet){
         //设置签名密钥随机数+MD5加密
         Random random=new Random();
         hospitalSet.setSignKey(MD5.encrypt(System.currentTimeMillis()+random.nextInt(1000)+""));
@@ -86,11 +87,11 @@ public class HospitalSetController {
     @GetMapping("getHospSet/{id}")
     public Result getHospSet(@PathVariable Long id){
         HospitalSet hospitalSet = hospitalSetService.getById(id);
-        try{
-            int a=1/0;
-        }catch (Exception e){
-            throw new YyghException("代码错误",201);
-        }
+//        try{
+//            int a=1/0;
+//        }catch (Exception e){
+//            throw new YyghException("代码错误",201);
+//        }
 
         return Result.ok(hospitalSet);
     }
